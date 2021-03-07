@@ -1,26 +1,15 @@
-//Date method is 1 behind. Add explanation here for why it is
-const monthLookUp = {
-    1: 0,
-    2: 1,
-    3: 2,
-    4: 3,
-    5: 4,
-    6: 5,
-    7: 6,
-    8: 7,
-    9: 8,
-    10: 9,
-    11: 10,
-    12: 11
+/**
+* This function aggregated all data values matching the key sent in
+* @param {array} data description
+* @param {string} key string of key in data
+* @param {string} type The type will be month of undefined. The Line Chart expects dates
+* in date form
+* @return {array} an array of objects
+*/
 
-}
-
-// TODO: add jsdocs
-//possible better name
 export default function aggregateDataKeys(data, key, type) {
     const aggregatedData = {};
-    //todo: explanation of shape for amchart
-    //amCharts takes an array with objects...
+
     const chartDataShape = [];
 
     data.forEach((item) => {
@@ -32,7 +21,9 @@ export default function aggregateDataKeys(data, key, type) {
     //generic keys for all data
     for (const [key, value] of Object.entries(aggregatedData)) {
         if (type === 'Month') {
-            const date = new Date(2010, monthLookUp[key], 1); //fix this month look up to not need a year
+            //The month is zero-based so need to subtract 1
+            const currentMonth = key - 1;
+            const date = new Date(2010, currentMonth, 1); //fix this month look up to not need a year
             chartDataShape.push({'xAxis': date, 'yAxis': value})
         } else {
             chartDataShape.push({'xAxis': key, 'yAxis': value})

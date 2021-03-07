@@ -37,13 +37,11 @@ createChart() {
 
     chart.data = aggregateDataKeys(data, dataLookUp, type);
 
-    // Create axes
     const dateAxis = chart.xAxes.push(new am4charts.DateAxis());
     dateAxis.renderer.minGridDistance = 60;
 
-    const valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+    chart.yAxes.push(new am4charts.ValueAxis());
 
-    // Create series
     const series = chart.series.push(new am4charts.LineSeries());
     series.dataFields.valueY = "yAxis";
     series.dataFields.dateX = "xAxis";

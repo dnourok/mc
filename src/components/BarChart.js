@@ -37,18 +37,6 @@ createChart() {
 
     chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
-    //data shape should be an array of objects
-    //[
-        //   {
-        //     xAxis: 2010,
-        //     yAxis: 9
-        //   },
-        //   {
-        //     xAxis: 2011,
-        //     yAxis: 10
-        //   }
-    //
-
     chart.data = aggregateDataKeys(data, dataLookUp);
 
     const categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
