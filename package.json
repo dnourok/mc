@@ -6,9 +6,12 @@
   "scripts": {
     "start": "webpack-dev-server --open",
     "build": "webpack --mode production",
-    "build-start": "npm run build && npm run start"
+    "build-server": "node server.js",
+    "build-client": "npm run build && npm run start"
   },
   "dependencies": {
+    "@amcharts/amcharts4-geodata": "^4.1.14",
+    "@amcharts/amcharts4": "^4.9.20",
     "@babel/polyfill": "^7.4.4",
     "core-util-is": "^1.0.2",
     "cors": "^2.8.5",
