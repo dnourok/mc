@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function Header() {
-
+export default function Header(props) {
+    const { title } = props;
     return (
-        <div>this is the header</div>
+        <h1>{title}</h1>
     );
 }

@@ -2,18 +2,8 @@ import React, { Component, Fragment } from 'react';
 import data from '../../data/volcanoData.csv';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
-import styled from 'styled-components';
 import aggregateDataKeys from '../../utils/dataHelpers';
-
-//TODO: With more time address
-// - performance issues on load
-// - responsive design
-
-const ChartContainer = styled.div`
-    height: 682px;
-    color: black;
-    width: 600px;
-`;
+import { ChartContainer } from '../style';
 
 export default class BarChart extends Component {
   constructor(props) {
@@ -58,6 +48,7 @@ createChart() {
         //     yAxis: 10
         //   }
     //
+
     chart.data = aggregateDataKeys(data, dataLookUp);
 
     const categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
@@ -75,7 +66,7 @@ createChart() {
     const series = chart.series.push(new am4charts.ColumnSeries());
     series.dataFields.categoryX = "xAxis";
     series.dataFields.valueY = "yAxis";
-    series.columns.template.tooltipText = "{valueY.value}"; //need better tooltip should come from prop
+    series.columns.template.tooltipText = "{valueY.value}";
     series.columns.template.tooltipY = 0;
     series.columns.template.strokeOpacity = 0;
 
@@ -90,7 +81,7 @@ render() {
 
     return (
         <Fragment>
-            <h3>{title}</h3>
+            <h4>{title}</h4>
             <ChartContainer id={id} />
         </Fragment>
     )

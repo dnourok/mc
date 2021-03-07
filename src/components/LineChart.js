@@ -2,18 +2,8 @@ import React, { Component, Fragment } from 'react';
 import data from '../../data/volcanoData.csv';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
-import styled from 'styled-components';
 import aggregateDataKeys from '../../utils/dataHelpers';
-
-//TODO: With more time address
-// - performance issues on load
-// - responsive design
-
-const ChartContainer = styled.div`
-    height: 682px;
-    color: black;
-    width: 600px;
-`;
+import { ChartContainer } from '../style';
 
 export default class LineChart extends Component {
   constructor(props) {
@@ -42,16 +32,10 @@ createChart() {
     }
 
     //TODO: add fallbacks
-    const { dataLookUp, id, minXAxis, maxXAxis } = this.props;
+    const { dataLookUp, type, id } = this.props;
     const chart = am4core.create(id, am4charts.XYChart);
 
-    chart.data = aggregateDataKeys(data, 'Month', 'Month');
-    //needs date passed in
-
-    // [{
-    //     date:
-    //     value;
-    // }]
+    chart.data = aggregateDataKeys(data, dataLookUp, type);
 
     // Create axes
     const dateAxis = chart.xAxes.push(new am4charts.DateAxis());
@@ -71,7 +55,6 @@ createChart() {
     chart.cursor.snapToSeries = series;
     chart.cursor.xAxis = dateAxis;
 
-    // chart.scrollbarY = new am4core.Scrollbar();
     chart.scrollbarX = new am4core.Scrollbar();
 }
 
@@ -80,7 +63,7 @@ render() {
 
     return (
         <Fragment>
-            <h3>{title}</h3>
+            <h4>{title}</h4>
             <ChartContainer id={id} />
         </Fragment>
     )
