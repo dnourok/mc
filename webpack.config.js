@@ -4,6 +4,19 @@ const  webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
+  // Large file sizes: By default amCharts contains support for exporting charts.
+  // This will create some files in your bundle directory (canvg.js, pdfmake.js, and xlsx.js).
+  // These files are harmless: they are dynamically loaded only when they are needed, so they do not increase the download size.
+  // However, they do increase the compilation times a bit, so if you do not need them you can disable them by adding this to your webpack.config.js
+  // Docs: https://www.amcharts.com/docs/v4/getting-started/integrations/using-webpack/
+  externals: [
+    function(context, request, callback) {
+        if (/xlsx|canvg|pdfmake/.test(request)) {
+            return callback(null, "commonjs " + request);
+        }
+        callback();
+    }
+  ],
   resolve: {
       extensions: ['.js', '.jsx']
   },
@@ -28,6 +41,21 @@ module.exports = {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.csv$/,
+        loader: 'csv-loader',
+        options: {
+          dynamicTyping: true,
+          header: true,
+          skipEmptyLines: true
+        }
+      },
+    // TODO: fix source-map build error
+    //   {
+    //     test: /\.js$/,
+    //     enforce: 'pre',
+    //     use: ['source-map-loader'],
+    //   },
       {
         test: /\.svg$/i,
         use: [
