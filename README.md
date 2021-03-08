@@ -34,9 +34,9 @@ Due to limited time to build the app it is using static data that can be found i
 
 There also isn't much design currently to this app besides what comes out of the box with amCharts. An improvement would be to add more to the UX. I also need to adjust components to be fully responsive.
 
-Additionally there are no data checks or loading/error states because of limited time. The charts could also become more dynamic from the data. For example the min and max for bar chart could be read from the highest and lowest points of the data. 
+Additionally there are no data checks or loading/error states because of limited time. The charts could also become more dynamic from the data. For example the min and max for bar chart could be read from the highest and lowest points of the data.
 
-# List of Todos to improve app
+# List of Todos to Improve App
 - Add eslint
 - Add tests
 - Add data type checks
