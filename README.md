@@ -12,7 +12,7 @@ Screenshots of app visualizations can be found in the description of this PR: ht
 4. Once the build is complete it should open ```http://localhost:8000/``` automatically
 
 # Tech Stack
-This is a very simple implementation of an app displaying data tracking volcano erruption. For the data visualization I went with creating re usable components that wrap the amCharts library.
+This is a very simple implementation of an app displaying data tracking volcano erruptions from 2010-2018. For the data visualization I went with creating re usable components that wrap the amCharts library.
 Docs for the amCharts can be found here https://www.amcharts.com/
 
 Specifically this app uses Bar, Line Chart and Donut Charts from the libary.
@@ -20,23 +20,23 @@ Bar chart docs: https://www.amcharts.com/demos/simple-column-chart/
 Line graph docs: https://www.amcharts.com/demos/line-graph/
 Donut chart graph docs: https://www.amcharts.com/demos/donut-chart/
 
-The app uses webpack for it's build and React for displaying the components. I chose to use webpack as I needed a tool to compile the Javascript to run the app. I find webpack easy to use especially when introducing new types of files such as CSV. Docs for webpack: https://webpack.js.org/concepts/
+The app uses webpack for it's build and React for displaying the components. I chose to use webpack as I needed a tool to compile the Javascript to run the app. I find webpack easy to use especially when introducing new types of files such as CSV that need to be added to the build. Docs for webpack: https://webpack.js.org/concepts/
 
-#Data Granualarity
+# Data Granualarity
 The app focuses on the granualarity of the data. Presenting different views from the aggregated data.
 1. Which month has had the most volcano eruptions over the past 8 years.
 2. Which country has had the most volcano eruptions over the past 8 years.
 3. Which year has had the most eruptions over the past 8 years.
-4. Province breakdown of Country over the past 8 years.
+4. The Province breakdown of Country which has had volcano eruptions over the past 8 years.
 
-#Improvements to the Data/Production Ready
-Due to limited time to build the app it is using static data that can be found in the data folder. If this app's goal was to go to production I would prefer to use an API to injest the data. Ideally the API would be maintained with up to date data. I would introduce a server specifically node.
+# Improvements to the Data/Production Ready
+Due to limited time to build the app it is using static data that can be found in the data folder. If this app's goal was to go to production I would prefer to use an API to injest the data. Ideally the API would be maintained with up to date data. I would introduce a server (node).
 
 There also isn't much design currently to this app besides what comes out of the box with amCharts. An improvement would be to add more to the UX. I also need to adjust components to be fully responsive.
 
-Additionally there are no data checks or loading/error states because there is static data. The charts could also become more dynamic off of the data as well for example with the min and max of the data endpoints.
+Additionally there are no data checks or loading/error states because of limited time. The charts could also become more dynamic from the data. For example the min and max for bar chart could be read from the highest and lowest points of the data. 
 
-#List of Todos to improve app
+# List of Todos to improve app
 - Add eslint
 - Add tests
 - Add data type checks
