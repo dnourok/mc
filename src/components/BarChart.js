@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import data from '../../data/volcanoData.csv';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
-import aggregateDataKeys from '../../utils/dataHelpers';
+import { aggregateDataKeys } from '../../utils/dataHelpers';
 import { ChartContainer } from '../style';
 
 export default class BarChart extends Component {

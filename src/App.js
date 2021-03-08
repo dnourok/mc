@@ -1,13 +1,24 @@
 import React, { Fragment } from 'react';
 import Header from './components/Header';
 import BarChart from './components/BarChart';
-import LineChart from './components/LineChart'
+import LineChart from './components/LineChart';
+import DonutChart from './components/DonutChart';
 import { Wrapper } from './style';
 
 const App = () => (
   <Fragment>
-    <Header title='Volcano Eruptions 2010-2018'/>
+    <Header title='Global Volcano Eruptions 2010-2018'/>
     <Wrapper>
+        <DonutChart
+            country='Indonesia'
+            title='Eruptions Per Indonesia'
+            id='byIndonesia'
+        />
+        <DonutChart
+            country='Japan'
+            title='Eruptions Per Japan'
+            id='byJapan'
+        />
         <LineChart
             dataLookUp='Month'
             type='Month'

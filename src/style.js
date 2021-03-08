@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
 
 
 export const ChartContainer = styled.div`
-    height: 682px;
+    height: 300px;
     width: 100%
     color: white;
     flex-direction: row;

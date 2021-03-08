@@ -7,7 +7,7 @@
 * @return {array} an array of objects
 */
 
-export default function aggregateDataKeys(data, key, type) {
+export function aggregateDataKeys(data, key, type) {
     const aggregatedData = {};
 
     const chartDataShape = [];
@@ -23,11 +23,34 @@ export default function aggregateDataKeys(data, key, type) {
         if (type === 'Month') {
             //The month is zero-based so need to subtract 1
             const currentMonth = key - 1;
-            const date = new Date(2010, currentMonth, 1); //fix this month look up to not need a year
+            const date = new Date(2010, currentMonth, 1);
             chartDataShape.push({'xAxis': date, 'yAxis': value})
         } else {
             chartDataShape.push({'xAxis': key, 'yAxis': value})
         }
+    }
+
+    return chartDataShape;
+}
+
+
+export function aggregateProvinces(data, country) {
+    const chartDataShape = [];
+    const aggregatedData = {};
+
+    data.forEach((item) => {
+        if (item['Country'] === country) {
+
+            const searchKey = item['Location'];
+            const doesKeyExists = aggregatedData[searchKey];
+            doesKeyExists ? ++aggregatedData[searchKey] : aggregatedData[searchKey] = 1;
+        }
+    });
+
+    //generic keys for all data
+    for (const [key, value] of Object.entries(aggregatedData)) {
+        chartDataShape.push({'country': key, 'litres': value})
+
     }
 
     return chartDataShape;
