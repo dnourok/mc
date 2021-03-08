@@ -11,12 +11,12 @@ const App = () => (
     <Wrapper>
         <DonutChart
             country='Indonesia'
-            title='Eruptions Per Indonesia'
+            title='Eruptions Regions within Indonesia'
             id='byIndonesia'
         />
         <DonutChart
             country='Japan'
-            title='Eruptions Per Japan'
+            title='Eruptions Regions within Per Japan'
             id='byJapan'
         />
         <LineChart
