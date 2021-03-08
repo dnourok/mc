@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import data from '../../data/volcanoData.csv';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
+import propTypes from 'prop-types';
 import { aggregateDataKeys } from '../../utils/dataHelpers';
 import { ChartContainer } from '../style';
 
@@ -31,7 +32,6 @@ createChart() {
         this.chart.dispose();
     }
 
-    //TODO: add fallbacks
     const { dataLookUp, type, id } = this.props;
     const chart = am4core.create(id, am4charts.XYChart);
 
@@ -66,4 +66,16 @@ render() {
         </Fragment>
     )
   }
+}
+
+LineChart.defaultProps = {
+    id: 'chartId',
+    title: ''
+}
+
+LineChart.propTypes = {
+    id: propTypes.string,
+    dataLookUp: propTypes.string,
+    title: propTypes.string,
+    type: propTypes.string
 }

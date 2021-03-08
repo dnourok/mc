@@ -2,7 +2,8 @@ import React, { Component, Fragment } from 'react';
 import data from '../../data/volcanoData.csv';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
-import { aggregateDataKeys, aggregateProvinces } from '../../utils/dataHelpers';
+import propTypes from 'prop-types';
+import { aggregateProvinces } from '../../utils/dataHelpers';
 import { ChartContainer } from '../style';
 
 export default class DonutChart extends Component {
@@ -31,7 +32,6 @@ if (this.chart) {
     this.chart.dispose();
 }
 
-//TODO: add fallbacks
 const { country, id } = this.props;
 
 // Create chart instance
@@ -66,4 +66,17 @@ render() {
         </Fragment>
     )
   }
+}
+
+DonutChart.defaultProps = {
+    id: 'chartId',
+    title: ''
+}
+
+DonutChart.propTypes = {
+    id: propTypes.string,
+    country: propTypes.string,
+    title: propTypes.string,
+    minXAxis: propTypes.number,
+    maxXAxis: propTypes.number
 }

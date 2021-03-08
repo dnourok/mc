@@ -4,6 +4,7 @@ import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 import { aggregateDataKeys } from '../../utils/dataHelpers';
 import { ChartContainer } from '../style';
+import propTypes from 'prop-types';
 
 export default class BarChart extends Component {
   constructor(props) {
@@ -31,7 +32,6 @@ createChart() {
         this.chart.dispose();
     }
 
-    //TODO: add fallbacks
     const { dataLookUp, id, minXAxis, maxXAxis } = this.props;
     const chart = am4core.create(id, am4charts.XYChart);
 
@@ -46,7 +46,7 @@ createChart() {
     categoryAxis.fontSize = 11;
 
     const valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-    valueAxis.min = minXAxis; //needs defaults
+    valueAxis.min = minXAxis;
     valueAxis.max = maxXAxis;
     valueAxis.strictMinMax = true;
     valueAxis.renderer.minGridDistance = 30;
@@ -74,4 +74,19 @@ render() {
         </Fragment>
     )
   }
+}
+
+BarChart.defaultProps = {
+    id: 'chartId',
+    title: '',
+    minXAxis: 0,
+    maxXAxis: 100
+}
+
+BarChart.propTypes = {
+    dataLookUp: propTypes.string,
+    id: propTypes.string,
+    title: propTypes.string,
+    minXAxis: propTypes.number,
+    maxXAxis: propTypes.number
 }
