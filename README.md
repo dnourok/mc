@@ -3,6 +3,8 @@
 # Description
 App to create data visualizations from data tracking volcano eruptions from 2010-2018. The goal is for the user to quickly understand a story of the data through a series of charts. The source of the data is https://www.kaggle.com/texasdave/volcano-eruptions.
 
+Screenshots of app visualizations can be found in the description of this PR: https://github.com/dnourok/mc/pull/1
+
 # Steps to run locally
 1. Clone repo
 2. Install necessary packages by running ```npm i```
