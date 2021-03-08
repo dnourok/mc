@@ -50,10 +50,11 @@ module.exports = {
           skipEmptyLines: true
         }
       },
+    // TODO: fix source-map build error
     //   {
-    //     test: /.js$/,
-    //     use: ["source-map-loader"],
-    //     enforce: "pre"
+    //     test: /\.js$/,
+    //     enforce: 'pre',
+    //     use: ['source-map-loader'],
     //   },
       {
         test: /\.svg$/i,

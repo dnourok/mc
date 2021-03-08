@@ -7,6 +7,8 @@
 * @return {array} an array of objects
 */
 
+// TODO: pull out helper function to share between these two functions
+
 export function aggregateDataKeys(data, key, type) {
     const aggregatedData = {};
 
@@ -23,6 +25,8 @@ export function aggregateDataKeys(data, key, type) {
         if (type === 'Month') {
             //The month is zero-based so need to subtract 1
             const currentMonth = key - 1;
+            // TODO: Look into all options for dates accepted by amchart. Need to use
+            // one without a specific year as it's aggregated over the past 8 years
             const date = new Date(2010, currentMonth, 1);
             chartDataShape.push({'xAxis': date, 'yAxis': value})
         } else {
