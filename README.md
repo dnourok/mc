@@ -48,6 +48,7 @@ Additionally there are no data checks or loading/error states because of limited
 - Add build process
 - Address warning size limit on build startup
 - Address any performance issues
+- Add more jsdocs
 
 # Evolve Data
 This is a very limited pool of data but there is a lot to present. I think there is more of a story to tell with the data. It could driver users to know what time of year is most dangerous to go to a specific country and even further what month they are at highest risk for a volcano erupting.

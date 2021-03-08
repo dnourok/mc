@@ -37,6 +37,12 @@ export function aggregateDataKeys(data, key, type) {
     return chartDataShape;
 }
 
+/**
+* This function aggregated all data values matching the key sent in
+* @param {array} data description
+* @param {country} country string of key in data
+* @return {array} an array of objects
+*/
 
 export function aggregateProvinces(data, country) {
     const chartDataShape = [];
